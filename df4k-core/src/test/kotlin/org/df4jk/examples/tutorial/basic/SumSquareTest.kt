@@ -1,4 +1,4 @@
-package org.df4j.examples.tutorial.basic
+package org.df4jk.examples.tutorial.basic
 
 import org.df4j.core.connector.messagescalar.CompletablePromise
 import org.df4j.core.connector.messagescalar.ConstInput

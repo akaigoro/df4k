@@ -11,6 +11,7 @@ package org.df4j.examples.swing;
 
 import org.df4j.core.node.Action;
 import org.df4j.core.node.messagestream.Actor1;
+import org.df4jk.examples.swing.SwingActor1;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -118,7 +119,7 @@ public class SwingActorTest extends JFrame {
     }
 
     public static void main(String[] args) throws Exception {
-        EventQueue.invokeLater(()->new SwingActorTest().setVisible(true));
+        EventQueue.invokeLater(()->new org.df4jk.examples.swing.SwingActorTest().setVisible(true));
     }
 
 }

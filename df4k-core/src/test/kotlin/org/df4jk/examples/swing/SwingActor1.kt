@@ -1,4 +1,4 @@
-package org.df4j.examples.swing
+package org.df4jk.examples.swing
 
 import org.df4j.core.node.messagestream.Actor1
 

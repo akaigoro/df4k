@@ -131,7 +131,7 @@ class DiningPhilosophers {
         /**
          * collects forks one by one
          */
-        private inner class Hungry : AsyncProcedure<Void>() {
+        inner class Hungry : AsyncProcedure<Void>() {
             internal var input = ScalarInput<Fork>(this)
 
             override fun start() {
@@ -157,7 +157,7 @@ class DiningPhilosophers {
         /** return forks
          *
          */
-        private inner class Replete : AsyncProcedure<Void>() {
+        inner class Replete : AsyncProcedure<Void>() {
 
             @Action
             protected fun act(): Void? {

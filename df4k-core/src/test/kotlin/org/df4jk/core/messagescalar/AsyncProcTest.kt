@@ -1,4 +1,4 @@
-package org.df4j.core.messagescalar
+package org.df4jk.core.messagescalar
 
 import org.df4j.core.connector.messagescalar.CompletablePromise
 import org.df4j.core.connector.messagescalar.CompletedPromise
@@ -22,7 +22,7 @@ class AsyncProcTest {
         val mult = Mult()
         mult.param1.post(a)
         mult.param2.post(b)
-        val result = mult.asyncResult().get(1, TimeUnit.SECONDS)
+        val result = mult.asyncResult().get(10000, TimeUnit.SECONDS)
         Assert.assertEquals(expected, result, 0.001)
     }
 
@@ -163,49 +163,13 @@ class AsyncProcTest {
         computeRoots(1.0, 6.0, 45.0)
     }
 
-    internal class Plus() : AsyncBiFunction<Double, Double, Double>({ val1: Double, val2: Double -> val1 + val2 }) {
-
-        init {
-            start()
-        }
-
-        protected constructor(pa: ScalarPublisher<Double>, pb: ScalarPublisher<Double>) : this() {
-            pa.subscribe(param1)
-            pb.subscribe(param2)
-        }
-    }
-
-    internal class Minus() : AsyncBiFunction<Double, Double, Double>({ val1: Double, val2: Double -> val1 - val2 }) {
-
-        init {
-            start()
-        }
-
-        protected constructor(pa: ScalarPublisher<Double>, pb: ScalarPublisher<Double>) : this() {
-            pa.subscribe(param1)
-            pb.subscribe(param2)
-        }
-    }
-
-    internal open class Mult() : AsyncBiFunction<Double, Double, Double>({ val1: Double, val2: Double -> val1 * val2 }) {
+    internal open class Mult() : AsyncBiFunction<Double, Double, Double>(fun(val1: Double, val2: Double):Double{return val1 * val2 }) {
 
         init {
             start()
         }
 
         constructor(pa: ScalarPublisher<Double>, pb: ScalarPublisher<Double>) : this() {
-            pa.subscribe(param1)
-            pb.subscribe(param2)
-        }
-    }
-
-    internal class Div() : AsyncBiFunction<Double, Double, Double>({ val1: Double, val2: Double -> val1 / val2 }) {
-
-        init {
-            start()
-        }
-
-        protected constructor(pa: ScalarPublisher<Double>, pb: ScalarPublisher<Double>) : this() {
             pa.subscribe(param1)
             pb.subscribe(param2)
         }

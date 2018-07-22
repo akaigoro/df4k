@@ -1,4 +1,4 @@
-package org.df4j.reflect
+package org.df4jk.reflect
 
 import org.df4j.core.node.Action
 import org.df4j.core.util.ActionCaller
@@ -38,7 +38,7 @@ class ActionCallerTest {
     @Test
     @Throws(Exception::class)
     fun notNullField() {
-        val f = { v -> v!! * 2 }
+        val f:Function<Int, Int> = fun(v:Int):Int { return v * 2 } //Function<Integer, Integer> f = (v)->v*2;
         val ac = ActionCaller.findAction(WithField_1(f), 1)
         Assert.assertTrue(ac.returnsValue())
         val res1 = ac.apply(ONE) as Int
@@ -110,7 +110,7 @@ class ActionCallerTest {
 
     internal class Empty
 
-    internal class WithField_1(function: Function<*, *>) {
+    internal class WithField_1(function: Function<*, *>?) {
         @Action
         val invoker: FunctionInvoker<*, *>
 

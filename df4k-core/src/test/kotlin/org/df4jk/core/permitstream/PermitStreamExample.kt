@@ -1,4 +1,4 @@
-package org.df4j.core.permitstream
+package org.df4jk.core.permitstream
 
 import org.df4j.core.connector.messagestream.StreamOutput
 import org.df4j.core.connector.permitstream.OneShotPermitPublisher

@@ -1,4 +1,4 @@
-package org.df4j.examples.tutorial
+package org.df4jk.examples.tutorial
 
 import org.df4j.core.connector.messagestream.StreamInput
 import org.df4j.core.node.Action
